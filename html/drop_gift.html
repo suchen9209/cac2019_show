@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>掉落接收服务</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/buttons.css">
+    <script src="./js/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="./js/GetIp.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        .step_div{
+            width: 350px;
+            height: 350px;
+            display: inline-block;
+            background: black;
+            margin: 5px 0px 0px 5px;
+            font-size: 18px;
+            float: left;
+            text-align: center;
+            color: white;
+        }
+        .cbtn{
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .num1{
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+        #midiurl{
+            width: 300px;
+            margin-top: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        textarea{
+            width: 300px;
+            height: 300px;
+            background: black;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body style="background-color: #ebebee">
+    <div class="step_div step_1">
+        <div class="cbtn button button-glow button-rounded button-caution" style="margin-top: 80px;margin-bottom: 50px;" id="openserver">开启服务</div>
+        <p>当前服务状态：<span id="service_status">CLOSE</span></p>
+    </div>
+    <div class="step_div step_2">
+        <span style="display: inline-block;">运行记录：</span>
+        <textarea id="service_log" style="display: inline-block;" readonly>
+    </textarea>
+    </div>
+    <script type="text/javascript">
+        require('../control/server.js')
+    </script>
+</body>
+</html>

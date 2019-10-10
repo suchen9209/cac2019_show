@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选手列表</title>
+    <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <script src="./js/jquery-1.8.3.js" type="text/javascript"></script>
+    <style type="text/css">
+        .box{
+            text-align: center;
+        }
+        .cbtn{
+            text-align: center;
+            width: 100px;
+            height: 50px;
+            display: inline-block;
+            background: yellowgreen;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .midi_dev{
+            height: auto !important;
+            margin: 2px;
+        }
+        .player_box{
+            width: 500px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .player{
+            display: inline-block;
+            width: 49%;
+            height: 40px;
+            background: turquoise;
+            line-height: 40px;
+            cursor: pointer;
+            margin-left: 1px;
+            margin-top: 1px;
+        }
+        .selected{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>选手列表：</span>
+        <div class="player_box">
+
+        </div>
+        <div class="team_list">
+
+        </div>
+        <br/>
+        <div>
+        接口地址：<input type="text" name='api_url' value=""><div class="cbtn" id="update_team">更新team</div>
+        <p>实时数据：</p>
+        左屏队伍ID:<input type="text" name="team_id_l" value=""  />
+        <div class="cbtn" id="left_screen">左屏幕</div>
+        <br/>
+        右屏队伍ID:<input type="text" name="team_id_r" value=""  />
+        <div class="cbtn" id="right_screen">右屏幕</div>
+        
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        require('../control/screen.js')
+        //require('../control/usb_control.js')
+    </script>
+    <script type="text/javascript"> 
+        var url = 'http://seed.fakecn.com:16443/cas/fresh_data.php';
+        $.ajax({
+            type:"GET",
+            url:url,
+            success: function(data){
+                if(data.success && data.data!=null && data.data.players[0] != undefined){
+                    showlist(data.data);
+                }
+            },
+            error:function(){
+            }
+        });
+        $("#update_team").on('click',(event)=>{
+            if($("input[name=api_url]").val() != ''){
+                url = $("input[name=api_url]").val();
+            }
+            $.ajax({
+                type:"GET",
+                url:url,
+                success: function(data){
+                    if(data.success && data.data!=null && data.data.players[0] != undefined){
+                        showlist(data.data);
+                    }
+                },
+                error:function(){
+                }
+            });
+        })
+        function showlist(data){
+            var players = data.players;
+            for (var key in players){
+                $(".player_box").append('<div class="player" data="'+key+'" id="p'+key+'">'+key+'-----'+players[key].player_info.name+'</div>');
+            }
+            $(".team_list").html('teamID:'+data.t_team_info.id+' teamName:'+data.t_team_info.name+'  <br/>'+'teamID:'+data.ct_team_info.id+' teamName:'+data.ct_team_info.name);
+        }    
+    
+    </script>
+
+</body>
+</html>
