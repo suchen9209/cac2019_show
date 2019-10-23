@@ -7,7 +7,7 @@
       "packager": "electron-packager . MIDI-CONTROL --platform=win32 --arch=x64 --out ../cac-out --version 1.8.2 --overwrite"
     },
     "devDependencies": {
-      "electron": "1.8.2",
+      "electron": "7.0.0",
       "electron-packager": "^12.0.2"
     },
     "dependencies": {
