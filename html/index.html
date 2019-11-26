@@ -1,111 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>选手列表</title>
-    <link rel="stylesheet" href="./css/index.css" type="text/css">
-    <script src="./js/jquery-1.8.3.js" type="text/javascript"></script>
-    <style type="text/css">
-        .box{
-            text-align: center;
-        }
-        .cbtn{
-            text-align: center;
-            width: 100px;
-            height: 50px;
-            display: inline-block;
-            background: yellowgreen;
-            line-height: 50px;
-            cursor: pointer;
-        }
-        .midi_dev{
-            height: auto !important;
-            margin: 2px;
-        }
-        .player_box{
-            width: 500px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .player{
-            display: inline-block;
-            width: 49%;
-            height: 40px;
-            background: turquoise;
-            line-height: 40px;
-            cursor: pointer;
-            margin-left: 1px;
-            margin-top: 1px;
-        }
-        .selected{
-            background: yellow;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="keywords" content="imbaTV,imba,自走棋,公开赛,全民,Autochess,自走棋比赛,赛事直播,dota自走棋,刀塔自走棋" />
+    <meta name="description" content="IMBA" />
+    <title>Imba！</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.3.js"></script>
 </head>
+
 <body>
-    <div class="box">
-        <span>选手列表：</span>
-        <div class="player_box">
-
-        </div>
-        <div class="team_list">
-
-        </div>
-        <br/>
-        <div>
-        接口地址：<input type="text" name='api_url' value=""><div class="cbtn" id="update_team">更新team</div>
-        <p>实时数据：</p>
-        左屏队伍ID:<input type="text" name="team_id_l" value=""  />
-        <div class="cbtn" id="left_screen">左屏幕</div>
-        <br/>
-        右屏队伍ID:<input type="text" name="team_id_r" value=""  />
-        <div class="cbtn" id="right_screen">右屏幕</div>
-        
-        </div>
-
+    <!-- 赞助商 -->
+    <div class="adv">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="Bottom_Breaktime.mp4" type="video/mp4"></video>
     </div>
-    <script type="text/javascript">
-        require('../control/screen.js')
-        //require('../control/usb_control.js')
-    </script>
-    <script type="text/javascript"> 
-        var url = 'http://seed.fakecn.com:16443/cas/fresh_data.php';
-        $.ajax({
-            type:"GET",
-            url:url,
-            success: function(data){
-                if(data.success && data.data!=null && data.data.players[0] != undefined){
-                    showlist(data.data);
-                }
-            },
-            error:function(){
-            }
-        });
-        $("#update_team").on('click',(event)=>{
-            if($("input[name=api_url]").val() != ''){
-                url = $("input[name=api_url]").val();
-            }
-            $.ajax({
-                type:"GET",
-                url:url,
-                success: function(data){
-                    if(data.success && data.data!=null && data.data.players[0] != undefined){
-                        showlist(data.data);
-                    }
-                },
-                error:function(){
-                }
-            });
-        })
-        function showlist(data){
-            var players = data.players;
-            for (var key in players){
-                $(".player_box").append('<div class="player" data="'+key+'" id="p'+key+'">'+key+'-----'+players[key].player_info.name+'</div>');
-            }
-            $(".team_list").html('teamID:'+data.t_team_info.id+' teamName:'+data.t_team_info.name+'  <br/>'+'teamID:'+data.ct_team_info.id+' teamName:'+data.ct_team_info.name);
-        }    
-    
-    </script>
-
+    <!-- 赞助商 -->
+    <!-- 龙狙 -->
+    <div class="box1">
+        <video poster="" id="video" playsinline="" autoplay="autoplay" muted="muted" width="100%" height="auto" class="fullscreenvideo">
+            <source src="lj.mp4" type="video/mp4"></video>
+    </div>
+    <!-- 龙狙 -->
+    <!-- 虚拟掉落 -->
+    <div class="box2">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="xcdl.mp4" type="video/mp4"></video>
+        <div class="box-cn">
+            <div class="cn1 fl">
+                <img src="images/t1.png" alt="" />
+            </div>
+            <div class="cn2 fl">
+                <span>ID</span>
+                <span>获得</span>
+            </div>
+            <div class="cn3 fl">
+                <div class="picScroll-top">
+                    <div class="bd">
+                        <ul class="picList">
+                            <li>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span>22222</span>
+                                        <span style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img src="images/AWP二西莫夫.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span>Echooeo</span>
+                                        <span style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img src="images/AWP二西莫夫.png" alt="" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span>Echooeo</span>
+                                        <span style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img src="images/M4A1次时代.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span>Echooeo</span>
+                                        <span style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img src="images/AWP二西莫夫.png" alt="" />
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span>Echooeo</span>
+                                        <span style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img src="images/M4A1次时代.png" alt="" />
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 虚拟掉落 -->
+    <!-- 实物掉落 -->
+    <div class="box3">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="xcdl.mp4" type="video/mp4"></video>
+        <div class="con">
+            <img src="images/t2.png" alt="" />
+            <div class="txt">
+                <span class="sp1">座位</span>
+                <span class="sp2">12区3排</span>
+                <span class="sp3">获得</span>
+                <span class="sp4">M4A1消音型 | 女火神之炽焰</span>
+            </div>
+        </div>
+    </div>
+    <!-- 实物掉落 -->
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+    Use2();
+});
+
+function Use1() {
+    $(".adv").show();
+    $(".box3").hide();
+    $(".box1").hide();
+    $(".box2").hide();
+}
+
+function Use2() {
+    $(".box1").show();
+    $(".box2").hide();
+    $(".box3").hide();
+    $(".adv").hide();
+    // 视频渲染监听视频播放结束
+    var v = document.getElementById("video");
+    v.addEventListener('ended', function() {
+        console.log("视频播放结束");
+        $(".box2").show();
+        $(".adv").hide();
+        $(".box1").hide();
+        $(".box3").hide();
+        jQuery(".picScroll-top").slide({ mainCell: ".bd ul", effect: "topLoop", autoPlay: true });
+    })
+}
+
+function Use3() {
+    $(".box3").show();
+    $(".box1").hide();
+    $(".box2").hide();
+    $(".adv").hide();
+}
+</script>
+
 </html>

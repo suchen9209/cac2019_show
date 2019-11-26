@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="keywords" content="imbaTV,imba,自走棋,公开赛,全民,Autochess,自走棋比赛,赛事直播,dota自走棋,刀塔自走棋" />
+    <meta name="description" content="IMBA" />
+    <title>Imba！</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.3.js"></script>
+</head>
+
+<body>
+    <!-- 赞助商 -->
+    <div class="adv">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="Bottom_Breaktime.mp4" type="video/mp4"></video>
+    </div>
+    <!-- 赞助商 -->
+    <!-- 龙狙 -->
+    <div class="box1" style="z-index: 100;position:absolute;left: 0px;top: 0px;">
+        <video poster="" id="video" playsinline="" muted="muted" width="100%" height="auto" class="fullscreenvideo">
+            <source src="lj.mp4" type="video/mp4"></video>
+    </div>
+    <!-- 龙狙 -->
+    <!-- 虚拟掉落 -->
+    <div class="box2">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="xcdl.mp4" type="video/mp4"></video>
+        <div class="box-cn">
+            <div class="cn1 fl">
+                <img src="images/t1.png" alt="" />
+            </div>
+            <div class="cn2 fl">
+                <span>ID</span>
+                <span>获得</span>
+            </div>
+            <div class="cn3 fl">
+                <div class="picScroll-top">
+                    <div class="bd">
+                        <ul class="picList">
+                            <li>
+                                <div class="pic fl">
+                                    <div class="pic1 fl">
+                                        <span class="content_name0">XXXXX</span>
+                                        <span class="content_item0" style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                    </div>
+                                    <div class="pic2 fl">
+                                        <img class="content_pic0" src="images/AWP二西莫夫.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="pic fl">
+                                  <div class="pic1 fl">
+                                      <span class="content_name1">XXXXX</span>
+                                      <span class="content_item1" style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                  </div>
+                                  <div class="pic2 fl">
+                                      <img class="content_pic1" src="images/AWP二西莫夫.png" alt="" />
+                                  </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="pic fl">
+                                  <div class="pic1 fl">
+                                      <span class="content_name2">XXXXX</span>
+                                      <span class="content_item2" style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                  </div>
+                                  <div class="pic2 fl">
+                                      <img class="content_pic2" src="images/AWP二西莫夫.png" alt="" />
+                                  </div>
+                              </div>
+                              <div class="pic fl">
+                                <div class="pic1 fl">
+                                    <span class="content_name3">XXXXX</span>
+                                    <span class="content_item3" style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                </div>
+                                <div class="pic2 fl">
+                                    <img class="content_pic3" src="images/AWP二西莫夫.png" alt="" />
+                                </div>
+                            </div>
+                            </li>
+                            <li>
+                              <div class="pic fl">
+                                <div class="pic1 fl">
+                                    <span class="content_name4">XXXXX</span>
+                                    <span class="content_item4" style="font-size: 25px;color: #f514bb;">AWP | 二西莫夫</span>
+                                </div>
+                                <div class="pic2 fl">
+                                    <img class="content_pic4" src="images/AWP二西莫夫.png" alt="" />
+                                </div>
+                              </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <!-- 虚拟掉落 -->
+    <!-- 实物掉落 -->
+    <div class="box3">
+        <video poster="" id="bgvid" playsinline="" autoplay="autoplay" muted="muted" loop="loop" width="100%" height="auto" class="fullscreenvideo">
+            <source src="xcdl.mp4" type="video/mp4"></video>
+        <div class="con">
+            <img src="images/t2.png" alt="" />
+            <div class="txt">
+                <span class="sp1">座位</span>
+                <span class="sp2">0区0排</span>
+                <span class="sp3">获得</span>
+                <span class="sp4">XXXXXXX</span>
+            </div>
+        </div>
+    </div>
+    <!-- 实物掉落 -->
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+    Use1();
+    
+});
+
+function Use1() {
+    $(".adv").show();
+    $(".box3").hide();
+    $(".box1").hide();
+    $(".box2").hide();
+}
+
+function Use2() {
+    $(".box1").show();
+    $(".box2").show();
+    $(".box3").hide();
+    $(".adv").hide();
+    // 视频渲染监听视频播放结束
+    var v = document.getElementById("video");
+    v.play();
+    v.addEventListener('ended', function() {
+        $(".box1").hide(); 
+    })
+}
+
+function Use3() {
+    $(".box3").show();
+    $(".box1").hide();
+    $(".box2").hide();
+    $(".adv").hide();
+}
+</script>
+<script type="text/javascript">
+    var gifts = [];
+    const fs = require('fs');
+    const http = require('http');
+    const https = require('https');
+    var get_interval;
+    //初始化gifts，如果有的话
+    var read = fs.createReadStream(__dirname+'/../jsondata/interim.json');
+
+    var gifts_json = '';
+    read.on('data', (chunk)=>{
+        gifts_json += chunk;
+        //show_data(gifts);
+    })
+    read.on('end',()=>{
+      gifts = JSON.parse(gifts_json).result.list;
+      console.log(gifts);
+      get_interval = setInterval(getData,20000);
+    })
+    
+    
+
+
+    // var player_id_arr = [];
+    // const ipcRenderer = require('electron').ipcRenderer;
+    // ipcRenderer.on('gifts_update',function(event,arg){
+    //     gifts = arg;
+    //     show_data(gifts);
+    // });
+
+    function show_data(gifts){
+      let html = '<div class="bd"><ul class="picList">';
+      for(var i in gifts){
+        if(i == 0 || i == 2 || i == 4){
+          html += '<li>';
+        }
+        if(gifts[i].nickname.length > 10){
+            html += '<div class="pic fl"><div class="pic1 fl"><span style="font-size:20px">'+gifts[i].nickname+'</span>';
+        }else{
+            html += '<div class="pic fl"><div class="pic1 fl"><span>'+gifts[i].nickname+'</span>';
+        }
+        
+        if(gifts[i].item_name.length >=14){
+          html += '<span style="font-size: 20px;color: #'+gifts[i].item_rarity_color+';">'+gifts[i].item_name+'</span></div>';
+        }else{
+          html += '<span style="font-size: 25px;color: #'+gifts[i].item_rarity_color+';">'+gifts[i].item_name+'</span></div>';
+        }
+        
+        html += '<div class="pic2 fl">';
+        let weapon_name = gifts[i].item_name.split('|');
+        let tmp_src;
+        if(weapon_name.length > 1){
+          weapon_name[1] = weapon_name[1].replace(/\s*/g,"");
+          if(weapon_name[1] == '二西莫夫'){
+            if(weapon_name[0].replace(/\s*/g,"") == 'AWP'){
+              weapon_name[1] = 'AWP二西莫夫';
+            }else if(weapon_name[0].replace(/\s*/g,"") == 'P250'){
+              weapon_name[1] = 'P250二西莫夫';
+            }
+          }
+          if(weapon_name[1] == '次时代'){
+            if(weapon_name[0].replace(/\s*/g,"") == 'SG553'){
+              weapon_name[1] = 'SG553次时代';
+            }
+          }
+          if(weapon_name[1] == '暴怒野兽'){
+            if(weapon_name[0].replace(/\s*/g,"") == 'FN57'){
+              weapon_name[1] = 'FN57暴怒野兽';
+            }else if(weapon_name[0].replace(/\s*/g,"") == 'AWP'){
+              weapon_name[1] = 'AWP暴怒野兽';
+            }
+          }
+          tmp_src = 'images/'+ weapon_name[1] + '.png';
+        }else{
+            if(gifts[i].item_name == '“裂网大行动”通行证'){
+                tmp_src = 'images/通行证.png';
+            }else{
+                tmp_src = 'images/'+ gifts[i].item_name + '.png';
+            }
+            
+        }
+        
+        //let tmp_src = '';
+        // tmp_local_img = __dirname+'/images/'+gifts[i].item_name+'.png';
+        // fs.exists(tmp_local_img, function(exists) {
+        //   console.log(i)
+        //   if(exists){
+        //     tmp_src = 'images/'+ gifts[i].item_name + '.png';
+        //     //$(".content_pic"+i).attr('src','images/'+ gifts[i].item_name + '.png');
+        //   }else{
+        //     tmp_src = gifts[i].item_icon;
+        //     //$(".content_pic"+i).attr('src',gifts[i].item_icon);
+        //   }
+        // });  
+        html += '<img src="'+tmp_src+'" alt="" /></div></div>';
+        if(i == 1 || i == 3 || i == 4){
+          html += '</li>';
+        }
+      }
+      html += '</ul></div>';
+      $(".picScroll-top").html(html);
+      
+      setTimeout(()=>{
+        $(".picScroll-top").slide({ mainCell: ".bd ul", effect: "topLoop", autoPlay: true,interTime:6000 });
+      },1000);
+      
+
+      Use2();
+    }
+
+    
+    function getData(){
+        
+        http.get('http://39.107.64.199:5555/',function(req,res){ 
+        //https.get('https://csgo.wanmei.com/cac2019drop/getdrophistory',function(req,res){  
+            var json='';  
+            req.setEncoding('utf8');
+            req.on('data',function(data){
+                json+=data;  		
+            });  
+            req.on('end',function(){  
+                console.log(json);
+                //json = eval("'" + json + "'");
+                let tmp_gifts  = JSON.parse(json);
+
+                if(tmp_gifts.status == 'success' && tmp_gifts.result.list.length > 0){
+                    if(gifts.length == 0 || tmp_gifts.result.list[0].nickname != gifts[0].nickname || tmp_gifts.result.list[0].id != gifts[0].id){
+                        gifts = tmp_gifts.result.list;
+                        show_data(gifts);
+                        var out = fs.createWriteStream(__dirname+'/../jsondata/interim.json');
+                        out.write(json);
+                    }
+                //if(json != '{}' && (tmp_gifts[0].nickname != gifts[0].nickname || tmp_gifts[0].id != gifts[0].id)){
+                    
+                }
+            });  
+        });
+    }
+
+    const ipcRenderer = require('electron').ipcRenderer;
+    ipcRenderer.on('live_drop',function(event,arg){
+        console.log(arg);
+        $(".sp2").html(arg.seat_num);
+        $(".sp4").html(arg.goods);
+        clearInterval(get_interval);
+        
+        Use3();
+    });
+
+
+    </script>
+</html>

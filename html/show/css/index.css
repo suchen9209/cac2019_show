@@ -1,0 +1,257 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: #000;
+}
+
+body {
+    font-size: 12px;
+    font-family: "SimSun", "宋体";
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+legend {
+    color: #000;
+}
+
+.box1 {
+    position: relative;
+}
+
+.box-cn {
+    position: absolute;
+    width: 1874px;
+    left: 50%;
+    margin-left: -937px;
+    top: 0;
+}
+
+.cn1 {
+    margin-right: 79px;
+}
+
+.cn1 img {
+    margin-top: 38px;
+    /*margin-left: 228px;*/
+}
+
+.cn2 {
+    width: 198px;
+    height: 144px;
+    margin-top: 15px;
+    background: url(../images/t5.png) repeat-x;
+}
+
+.cn2 span {
+    display: block;
+    width: 100%;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    font-size: 40px;
+    font-family: "微软雅黑";
+    color: #a3a3a3;
+}
+
+.fl {
+    float: left;
+}
+
+.picScroll-top {
+    margin: 0 auto;
+    width:1330px;
+    overflow: hidden;
+    position: relative;
+}
+
+.picScroll-top .bd ul {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.picScroll-top .bd ul li {
+    text-align: center;
+    zoom: 1;
+    height: 144px;
+}
+.picScroll-top .bd ul li .pic1{
+	 width: 285px;
+    height: 144px;
+   background: url(../images/t6.png) repeat-x;
+}
+.picScroll-top .bd ul li .pic1 span{
+	display: block;
+    width: 285px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    font-size: 35px;
+    font-family: "微软雅黑";
+    color: #fff;
+}
+.picScroll-top .bd ul li .pic2{
+	width: 380px;
+	height: 144px;
+	background: url(../images/t7.png) repeat-x;
+}
+.picScroll-top .bd ul li .pic2 img{
+	width: 380px;
+	height: 144px;
+}
+.picScroll-top .bd ul li .pic {
+    text-align: center;
+}
+.cn3{
+	height: 144px;
+	margin-top: 15px;
+}
+.box2{
+	position: relative;
+}
+.box2 .con{
+	width: 1700px;
+	left: 50%;
+	margin-left: -850px;
+	top: 0;
+	position: absolute;
+}
+.box2 .con img{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.txt span{
+	float: left;
+	height: 102px;
+}
+span.sp1{
+	width: 238px;
+	font-size: 35px;
+	color: #a3a3a3;
+	font-family: "微软雅黑";
+	text-align: center;
+	line-height: 102px;
+	background: url(../images/t3.png) repeat-x;
+}
+span.sp2{
+	width: 543px;
+	font-size: 35px;
+	color: #FFF;
+	font-family: "微软雅黑";
+	text-align: center;
+	line-height: 102px;
+	background: url(../images/t4.png) repeat-x;
+}
+span.sp3 {      
+	width: 238px;
+	font-size: 35px;
+	color: #a3a3a3;
+	font-family: "微软雅黑";
+	text-align: center;
+	line-height: 102px;
+	background: url(../images/t3.png) repeat-x;
+}
+span.sp4{
+	width: 677px;
+	font-size: 35px;
+	color: #f514bb;
+	font-family: "微软雅黑";
+	text-align: center;
+	line-height: 102px;
+	background: url(../images/t4.png) repeat-x;
+}

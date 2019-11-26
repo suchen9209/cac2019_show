@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <script src="./js/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="./js/vue.js" type="text/javascript"></script>
+    <script src="./js/jquery.tablesort.js" type="text/javascript"></script>
+    <style type="text/css">
+        .red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id='time'></div>
+    <div id ="round">
+        123123
+    </div>
+    
+    <div id='show_kill' style="display: none;">123</div>
+    <div id='show_end'  style="display: none;">13333</div>
+    <script type="text/javascript">
+    var gifts = [];
+    const fs = require('fs');
+    const http = require('http');
+      //初始化gifts，如果有的话
+    var read = fs.createReadStream('./jsondata/interim.json');
+    read.on('data', (chunk)=>{
+        gifts = JSON.parse(chunk)
+        //show_data(gifts);
+    })
+    console.log(gifts);
+
+
+    // var player_id_arr = [];
+    // const ipcRenderer = require('electron').ipcRenderer;
+    // ipcRenderer.on('gifts_update',function(event,arg){
+    //     gifts = arg;
+    //     show_data(gifts);
+    // });
+
+    function show_data(gifts){
+        $("#round").html(gifts.toString());
+    }
+
+    var get_interval = setInterval(getData,1000);
+    function getData(){
+        http.get('http://39.107.64.199:5555',function(req,res){  
+            var json='';  
+            req.setEncoding('utf8');
+            req.on('data',function(data){
+                json+=data;  		
+            });  
+            req.on('end',function(){  
+                console.log(json);
+                //json = eval("'" + json + "'");
+                let tmp_gifts = JSON.parse(json);
+                if(tmp_gifts != gifts){
+                    gifts = tmp_gifts;
+                    show_data(gifts[0].nickname);
+                    var out = fs.createWriteStream('./jsondata/interim.json');
+                    out.write(json);
+                }
+            });  
+        });
+    }
+
+    const ipcRenderer = require('electron').ipcRenderer;
+    ipcRenderer.on('live_drop',function(event,arg){
+        console.log(arg);
+        clearInterval(get_interval);
+    });
+
+
+    </script>
+</body>
+</html>
